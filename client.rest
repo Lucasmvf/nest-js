@@ -3,6 +3,8 @@
 # RECADOS
 ###
 GET {{baseUrl}}/recados/
+?limit=10
+&offset=0
 ###
 GET {{baseUrl}}/recados/12/
 ###
@@ -21,3 +23,5 @@ Content-Type: application/json
   "recado": "Este é o recado que estou enviando",
   "atualizar": true
 }
+###
+DELETE {{baseUrl}}/recados/1/
