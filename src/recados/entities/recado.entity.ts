@@ -1,6 +1,6 @@
 export class Recado{
     id: number;
-    titulo: string;
+    texto: string;
     de: string;
     para: string;
     lido: boolean;

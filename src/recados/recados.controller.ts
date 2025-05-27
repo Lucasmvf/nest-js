@@ -10,31 +10,27 @@ export class RecadosController {
     findAll(@Query() pagination: any){
         const { limit = 10, offset = 0 } = pagination;
         // return `Todos os recados. Limite=${limit}, Offset=${offset}.`;
-        return this.recadosService.getRecados();
+        return this.recadosService.findAll();
     }
     
     @Get(':id')
-    findOne(@Param() parametros: any){
-        console.log(parametros);
-        return 'Um recado';
+    findOne(@Param('id') id: string) {
+        return this.recadosService.findOne(id);
     }
 
     @Post()
     create(@Body() body: any){ 
-        return body;
+        return this.recadosService.create(body);
     }
 
     @Patch(':id')
     update(@Param('id') id: string, @Body() body: any){
-        return{
-            id,
-            ...body   
-        }
+        this.recadosService.update(id, body);
     }
 
     @Delete(':id')
     remove(@Param('id') id: string) {
-        return `Recado ${id} removido`;
+        this.recadosService.remove(id);
     }
 
     
