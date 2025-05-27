@@ -42,6 +42,9 @@ export class RecadosService {
     update(id: string, body: any) {
         const recadoExistenteIndex = this.recados.findIndex(item => item.id === +id);
 
+        if (recadoExistenteIndex < 0) {
+            throw new NotFoundException('Recado não encontrado.');
+        }
         if (recadoExistenteIndex >= 0) {
             const recadoExistente = this.recados.find(item => item.id === +id);
 
@@ -49,15 +52,23 @@ export class RecadosService {
                 ...recadoExistente,
                 ...body,
             };
+
+            return this.recados[recadoExistenteIndex];
         }
     }
 
     remove(id: string) {
         const recadoExistenteIndex = this.recados.findIndex(item => item.id === +id);
 
-        if(recadoExistenteIndex >= 0 ) {
+        if (recadoExistenteIndex < 0) {
+            throw new NotFoundException('Recado não encontrado.');
+        }        
+
+            const recado = this.recados[recadoExistenteIndex];
+
             this.recados.splice(recadoExistenteIndex, 1);
-            return { message: 'Recado removido com sucesso!' };
+            
+            return recado;
         }
     }
-}
+
