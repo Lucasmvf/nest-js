@@ -12,11 +12,9 @@ POST {{baseUrl}}/recados/
 Content-Type: application/json
 
 {
-    "texto": "NOVO RECADO",
+    "texto": "Olá, este é um recado - Lucas",
     "de": "Goku",
-    "para": "Maria",
-    "lido": false,
-    "data": "2023-10-01T10:00:00.000Z"
+    "para": "Maria"
   }
 ### Atualiza um recado existente.
 PATCH {{baseUrl}}/recados/2/
@@ -24,10 +22,9 @@ Content-Type: application/json
 
 {
     "texto": "NOVO RECADO - Lucas",
-    "de": "Goku",
-    "para": "Maria",
-    "lido": false,
-    "data": "2023-10-01T10:00:00.000Z"
+     "de": "Goku",
+    "para": "Maria"
+   
   }
 ### Deleta um recado existente.
 DELETE {{baseUrl}}/recados/2/
